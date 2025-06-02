@@ -1,6 +1,13 @@
-FROM          docker.io/redhat/ubi9
-COPY          mongo.repo /etc/yum.repos.d/mongo.repo
-RUN           dnf install mysql mongodb-mongosh git -y
-COPY          run.sh /
-ENTRYPOINT    ["bash", "-x", "/run.sh"]
-RUN           dnf remove python3-setuptools-53.0.0-12.el9_4.1.noarch -y
+FROM docker.io/redhat/ubi9-minimal:latest
+
+# Add MongoDB repo
+COPY mongo.repo /etc/yum.repos.d/mongo.repo
+
+# Install MySQL client, mongosh, git, bash
+RUN microdnf install -y mysql mongodb-mongosh git bash
+
+# Copy entrypoint script
+COPY run.sh /run.sh
+RUN chmod +x /run.sh
+
+ENTRYPOINT ["bash","./run.sh"]

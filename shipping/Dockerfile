@@ -1,5 +1,5 @@
-FROM          docker.io/redhat/ubi9
-RUN           dnf install mysql git -y
+FROM          docker.io/redhat/ubi9-minimal:latest
+RUN           microdnf install mysql git -y
 RUN           mkdir /app
 WORKDIR       /app
 RUN           git clone https://github.com/roboshop-devops-project-v3/shipping /app

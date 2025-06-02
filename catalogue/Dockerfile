@@ -1,4 +1,4 @@
-FROM          docker.io/redhat/ubi9
+FROM          docker.io/redhat/ubi9-minimal:latest
 COPY          mongo.repo /etc/yum.repos.d/mongo.repo
 RUN           dnf install mongodb-mongosh git -y
 RUN           mkdir /app
