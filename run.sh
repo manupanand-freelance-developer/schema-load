@@ -7,7 +7,7 @@ set -ex
 # Clone repo if not already cloned
 if [ ! -d "$REPO_DIR" ]; then
     echo "Cloning repository..."
-    git clone "$APP_GIT_URL "
+    git clone "$APP_GIT_URL"
 fi
 
 
