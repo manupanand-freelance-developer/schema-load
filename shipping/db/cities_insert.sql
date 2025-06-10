@@ -1,3 +1,7 @@
+CREATE DATABASE IF NOT EXISTS cities;
+
+use cities;
+
 INSERT INTO cities (country_code, city, name, region, latitude, longitude) VALUES
 ('ru', 'moscow', 'Moscow', 'Moscow', 55.7558, 37.6173),
 ('ru', 'saintpetersburg', 'Saint Petersburg', 'Leningrad Oblast', 59.9343, 30.3351),
